@@ -8,24 +8,26 @@ import java.util.ArrayList;
 public class password_check {
     public static void main (String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Pattern p = Pattern.compile("[^a-zA-Z0-9]");
-        Pattern d = Pattern.compile("[0-9]");
-        Pattern u = Pattern.compile("[A-Z]"); 
+        Pattern p = Pattern.compile("[^a-zA-Z0-9]"); //special character
+        Pattern d = Pattern.compile("[0-9]"); //number
+        Pattern u = Pattern.compile("[A-Z]");  //capital letter
+        //defined requirements scope
 
+        
         while (true) {
             System.out.print("Please enter a password: ");
             String password = scanner.nextLine(); 
             
-            // 1. Run find() ONCE and save the boolean results
+            //find in input
             boolean hasSpecialChar = p.matcher(password).find(); 
             boolean hasDigit = d.matcher(password).find();
             boolean hasUpperCase = u.matcher(password).find();
 
             boolean hasValidLength = password.length() >= 8;
 
-            List<String> missingReqs = new ArrayList<>();
+            List<String> missingReqs = new ArrayList<>(); //list for unmet requirements; added to and finally outputted
 
-            // 2. Evaluate using the boolean variables
+            //begin if statements - adding to missingReqs list if unmet
             if (!hasSpecialChar) {
                 missingReqs.add(" at least special character");
             }  if (!hasDigit) {
@@ -41,9 +43,9 @@ public class password_check {
                 break;
             }
             else {
-                System.out.println("Password must contain: " + String.join(", ", missingReqs));
+                System.out.println("Password must contain: " + String.join(", ", missingReqs)); //joins all unmet requirements.
             } 
         }
-    scanner.close();
+    scanner.close(); //outside of while loop
     }
 }
