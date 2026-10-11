@@ -9,7 +9,7 @@ Created in 2025 as a quick project.
 
 ## Tech Stack
 - Java
-- Regex (`java.util.regex.Pattern`) -> Upon review, matcher is unneeded.
+- Regex (`java.util.regex.Pattern`) 
 - List/ArrayList (`java.util.List`) (`java.util.ArrayList`)
 - Scanner (`java.util.Scanner`)
 
